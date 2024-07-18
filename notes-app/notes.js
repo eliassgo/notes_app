@@ -38,7 +38,18 @@ const loadNotes = function (){
     }
 }
 
+const removeNote = function (title){
+    const notes = loadNotes()
+    const notesToKeep = notes.filter(function (note) {
+        return note.title !== title
+    })
+
+    saveNotes(notesToKeep)
+}
+
+
 export default {
     getNotes: getNotes, 
-    addNote: addNote
+    addNote: addNote, 
+    removeNote: removeNote
 }

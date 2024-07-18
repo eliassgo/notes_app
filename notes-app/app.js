@@ -8,8 +8,10 @@ const log = console.log;
 
 yargs(hideBin(process.argv))
 // Customize yargs version
+
 .version('1.1.1')
 // Creat add command 
+
 .command({
     command: 'add', 
     describe: 'Add a new note',
@@ -33,8 +35,15 @@ yargs(hideBin(process.argv))
 .command({
     command: 'remove', 
     describe: 'Remove a note',
-    handler: function (){
-        log('Removing the note')
+    builder: {
+        title:{
+            describe: 'Note title', 
+            demandOption: true, 
+            type: 'string'
+        }
+    },
+    handler: function (argv){
+        notes.removeNote(argv.title)
     }
 })
 // Create list commmand 
