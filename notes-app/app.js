@@ -51,7 +51,7 @@ yargs(hideBin(process.argv))
     command: 'list', 
     describe: 'List the notes',
     handler (){
-        log('Listing out all notes')
+        notes.listNotes()
     }
 })
 // Create read commmand 
