@@ -57,9 +57,16 @@ yargs(hideBin(process.argv))
 // Create read commmand 
 .command({
     command: 'read', 
-    describe: 'Read a notes',
-    handler (){
-        log('Reading a notes')
+    describe: 'Read a note',
+    builder: {
+    title: {
+        describe: 'Note title',
+        demandOption: true,
+        type: 'string'
+    }
+},
+    handler (argv){
+        notes.readNote(argv.title)
     }
 }).argv
 
